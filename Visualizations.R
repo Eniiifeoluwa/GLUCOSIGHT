@@ -1,16 +1,12 @@
 library(tidyverse)
 library(ggpubr)
-data = read.csv('cleaned data.csv')
+data = read.csv('DATASETS/cleaned data.csv')
 
-for (column in seq(ncol(data))){
-  if(length(unique(data[[column]]))<4){
-    data[[column]]<- as.factor(data[[column]])
-  }
-}
+data<- factor_converter(data)
 
-numeric_column<- data %>% select_if(is.numeric)
+numeric_column<- numeric_selector(data)
 
-#numeric_data<- data %>% select(where(is.numeric))
+
 correlation_matrix = cor(numeric_column, use = 'complete.obs')
 #***************************************************
 #             CORRELATION MATRIX                   #  
@@ -48,46 +44,7 @@ ggplot(data = extended_data,
 #***************************************************
 #             WORKING ON THE OUTLIERS          #  
 #***************************************************
-# outlier_detector<- function(x){deviation = sd(x,na.rm = T)
-#   average = mean(x,na.rm = T)
-#   scaler= (x - average)/deviation
-#   outlier<- sum(abs(scaler) > 3)
-#   return (outlier)}
 
-box_plot_outlier<- function(x){
-  Q1<- quantile(x, 0.25, na.rm = T)
-  Q3<- quantile(x, 0.75, na.rm = T)
-  
-  inter<- Q3 - Q1
-  
-  lower_bound = Q1- (1.5 * inter)
-  upper_bound = Q3 + (1.5 * inter)
-  
-  outlier<- which(x > upper_bound | x < lower_bound)
-  
-  total<- length(outlier)
-  return(total)
-}
-
-
-# outliers<- data.frame(Variable = character(),
-#                       Outlier = numeric(),
-#                       class_value = character(),
-#                       stringsAsFactors = FALSE)
-# 
-# for (column in seq(ncol(data))){
-#   if(is.numeric(data[[column]])){
-#     
-#     cat("The Number of Outliers in", colnames(data[column]),
-#         "is:", box_plot_outlier(data[[column]]))
-#     
-#     outliers<- rbind(outliers, data.frame(
-#       Variable = colnames(data[column]),
-#       Outlier = box_plot_outlier(data[[column]]),
-#       stringsAsFactors = F))
-#     cat("\n")
-#   }
-# }
 
 
 outliers <- data.frame(Variable = character(),

@@ -2,7 +2,7 @@
 #   IMPORTING NECCESSARY LIBRARIES AND DATA        # 
 #***************************************************
 library(dplyr)
-data<- read.csv("diabetes_dataset.csv")
+data<- read.csv("DATASETS/diabetes_dataset.csv")
 
 sum(duplicated(data))
 data<- data[!duplicated(data), ]

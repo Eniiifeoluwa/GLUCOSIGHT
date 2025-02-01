@@ -1,14 +1,10 @@
 library(tidyverse)
 library(ggpubr)
-data = read.csv('cleaned data.csv')
+data = read.csv('DATASETS/cleaned data.csv')
 
-for (column in seq(ncol(data))){
-  if(length(unique(data[[column]]))<4){
-    data[[column]]<- as.factor(data[[column]])
-  }
-}
+data<- factor_converter(data)
 numeric_column<- data %>% select_if(is.numeric)
-categorical_column<- data %>% select(where(is.factor))
+categorical_column<- category_selector(data)
 
 distribution_test<-  data.frame(` |D-MAX| ` = numeric(),
                                 P_value = numeric(), Decison = character(),
@@ -46,7 +42,6 @@ for(col in colnames(numeric_column)){
   cat('\n')
 }
 
-chisq.test()
 
 for(column in binary_columns){
   if(column!= 'diabetes'){
