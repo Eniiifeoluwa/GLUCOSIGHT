@@ -35,8 +35,8 @@ std_weights<- fromJSON('json files/std_values.json')
 # Predict function
 predict_diabetes <- function(age, hypertension, heart_disease, bmi, hbA1c, blood_glucose, 
                              previously_smoking, currently_smoking, never_smoked, gender) {
-  # Create input vector matching the trained model's expected format
-  # Scale numeric variables
+
+  
   scaled_age <- (age - mean_weights$age) / std_weights$age
   scaled_bmi <- (bmi - mean_weights$bmi) / std_weights$bmi
   scaled_hbA1c <- (hbA1c - mean_weights$HbA1c_level) / std_weights$HbA1c_level
