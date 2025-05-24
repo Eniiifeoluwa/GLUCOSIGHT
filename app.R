@@ -7,14 +7,15 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(ROCR)
-library('jsonlite')
+library(jsonlite)
 library(caret)
-library('smotefamily')
-# Load and preprocess data (use the same preprocessing as before)
-data<- read.csv("DATASETS/cleaned data.csv")
-train_data <- read.csv("DATASETS/training_set.csv")
-test_data <- read.csv("DATASETS/testing_set.csv")
+library(here)
 
+#library(smotefamily)
+# Load and preprocess data (use the same preprocessing as before)
+data<- read.csv(here("DATASETS/cleaned data.csv"))
+train_data <- read.csv(here("DATASETS/training_set.csv"))
+test_data <- read.csv(here("DATASETS/testing_set.csv"))
 
 # Sigmoid function
 sigmoid <- function(x) {

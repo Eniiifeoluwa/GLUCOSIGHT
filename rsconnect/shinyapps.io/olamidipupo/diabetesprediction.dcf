@@ -1,0 +1,13 @@
+name: diabetesprediction
+title: diabetesprediction
+username: olamidipupo
+account: olamidipupo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14647739
+bundleId: 10202360
+url: https://olamidipupo.shinyapps.io/diabetesprediction/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: www/Mean Differences.png|Codes|PLOTS
