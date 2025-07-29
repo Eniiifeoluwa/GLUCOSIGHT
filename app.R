@@ -15,7 +15,7 @@ library(here)
 # Load and preprocess data (use the same preprocessing as before)
 data<- read.csv(here("DATASETS/cleaned data.csv"))
 train_data <- read.csv(here("DATASETS/training_set.csv"))
-test_data <- read.csv(here("DATASETS/testing_set.csv"))
+test_data <- read.csv(here("DATASETS/testing_Set.csv"))
 
 # Sigmoid function
 sigmoid <- function(x) {
@@ -64,12 +64,12 @@ predict_diabetes <- function(age, hypertension, heart_disease, bmi, hbA1c, blood
   
   
   pred_prob <- sigmoid(X_input %*% weights)
-  if (pred_prob > 0.5) return("Diabetic") else return("Not Diabetic")
+  if (pred_prob > 0.9) return("Diabetic") else return("Not Diabetic")
 }
 set.seed(42)
 # UI
 ui <- dashboardPage(
-  dashboardHeader(title = "Diabetes Prediction App"),
+  dashboardHeader(title = "GLUCOSIGHT"),
   dashboardSidebar(
     sidebarMenu(
       menuItem("Home", tabName = "home", icon = icon("home")),
@@ -83,7 +83,7 @@ ui <- dashboardPage(
     useShinyjs(),
     tabItems(
       tabItem(tabName = "home",
-              h2("Welcome to the Diabetes Prediction App"),
+              h2("Welcome to the GlucoSight: Diabetes Prediction App"),
               p("This app uses Logistic Regression with Stochastic Gradient Descent (SGD) to predict diabetes based on input features."),
              
               img(src = "diabetes_image.jpg", height = "800px", width = "1200px")

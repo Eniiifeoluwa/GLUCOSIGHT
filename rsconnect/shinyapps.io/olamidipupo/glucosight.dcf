@@ -1,0 +1,13 @@
+name: glucosight
+title: glucosight
+username: olamidipupo
+account: olamidipupo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14996524
+bundleId: 10524800
+url: https://olamidipupo.shinyapps.io/glucosight/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|evaluation.R|MCB.png|MicroBiology.png|Model Training.R|Splitting.R|Statistical tests.R|www/Mean Differences.png

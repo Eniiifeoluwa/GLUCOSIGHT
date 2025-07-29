@@ -184,3 +184,4 @@ ggplot(age_diabetes_summary, aes(x = age_group, y = count, fill = diabetes)) +
     axis.title = element_text(size = 12)
   )
 correlation_matrix
+
